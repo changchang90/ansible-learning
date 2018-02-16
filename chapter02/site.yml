@@ -1,0 +1,15 @@
+---
+- name: Playbook 範例
+  hosts: all
+  become: true
+  tasks:
+    - name: 安裝 Nginx
+      apt:
+        name: nginx
+        update_cache: yes
+
+    - name: 開機時自動啟動 Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: true
